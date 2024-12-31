@@ -1,45 +1,44 @@
 /* Global styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    background-color: #f4f4f9; /* Softer background color */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #fff;
+    color: #333;
 }
 
 /* Headings */
 h2 {
     text-align: center;
-    color: #fff;
-    font-weight: 700;
+    color: #333;
+    font-weight: 600;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
+    text-transform: capitalize;
+    font-size: 24px;
 }
 
 /* Form container */
 .form-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: #ffffff; /* Clean white background for the form */
     padding: 25px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     text-align: center;
 }
 
 /* Form Labels */
 label {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     display: block;
     margin-bottom: 8px;
-    color: #f0f0f0;
+    color: #666; /* Softer color for labels */
     text-align: left;
 }
 
@@ -48,48 +47,44 @@ input[type="text"], input[type="password"], input[type="email"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: none;
-    border-radius: 10px;
+    border: 1px solid #ccc; /* Soft border for input fields */
+    border-radius: 6px;
     font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #f9f9f9; /* Lighter background for input */
     color: #333;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
     outline: none;
+    border-color: #007bff; /* Blue border on focus */
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Submit Button */
 button {
     width: 100%;
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #007bff; /* Soft blue background */
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
-    background-color: #3e8e41;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* Link to Sign Up page */
 a {
-    color: #4CAF50;
+    color: #007bff;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 a:hover {
@@ -100,11 +95,21 @@ a:hover {
 form p {
     margin-top: 15px;
     font-size: 14px;
-    color: #ddd;
+    color: #888; /* Softer color for the text */
 }
 
 /* Placeholder styles */
 input::placeholder {
     font-size: 14px;
     color: #aaa;
+}
+
+/* Mobile responsiveness */
+.form-container {
+    padding: 20px;
+    max-width: 90%;
+}
+
+body {
+    font-size: 14px;
 }
