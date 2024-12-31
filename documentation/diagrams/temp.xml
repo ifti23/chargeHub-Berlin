@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-12-30T12:00:00Z" agent="Mozilla/5.0" version="16.9.6" type="device">
+  <diagram id="FlowDiagram" name="Component Interaction Sequence Diagram">
+    <mxGraphModel dx="1500" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1"
+                  page="1" pageScale="1" pageWidth="297" pageHeight="210" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0" name="Layer 1" layer="1"/>
+
+        <!-- Lifelines -->
+        <mxCell id="UserLifeline" value="User" style="umlLifeline" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="60" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="AngularLifeline" value="Angular Frontend" style="umlLifeline" vertex="1" parent="1">
+          <mxGeometry x="260" y="40" width="100" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="FlaskLifeline" value="Flask Backend" style="umlLifeline" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="90" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="DbLifeline" value="Database" style="umlLifeline" vertex="1" parent="1">
+          <mxGeometry x="700" y="40" width="80" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Scenario 1: User Registers -->
+        <mxCell id="reg1" value="(1) Register Data" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="UserLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="reg2" value="POST /api/users" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="reg3" value="Insert User Record" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="DbLifeline"/>
+        </mxCell>
+        <mxCell id="reg4" value="ACK" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="DbLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="reg5" value="User Created" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="reg6" value="Registration Success" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="UserLifeline"/>
+        </mxCell>
+
+        <!-- Scenario 2: User Logs In -->
+        <mxCell id="login1" value="(2) Login Credentials" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="UserLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="login2" value="POST /api/login" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="login3" value="Check User / PW" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="DbLifeline"/>
+        </mxCell>
+        <mxCell id="login4" value="Valid / Invalid?" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="DbLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="login5" value="Return Token / Session" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="login6" value="Login Success" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="UserLifeline"/>
+        </mxCell>
+
+        <!-- Scenario 3: Search for Charging Station -->
+        <mxCell id="search1" value="(3) Enter Postal Code" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="UserLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="search2" value="GET /api/search?postalCode=..." style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="search3" value="Query Stations" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="DbLifeline"/>
+        </mxCell>
+        <mxCell id="search4" value="Stations Found" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="DbLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="search5" value="Return JSON" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="search6" value="Display Stations" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="UserLifeline"/>
+        </mxCell>
+
+        <!-- Scenario 4: Report Malfunction -->
+        <mxCell id="malfunction1" value="(4) Report Malfunction" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="UserLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="malfunction2" value="POST /api/report?stationId=..." style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="malfunction3" value="Mark Station Malfunctioning" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="DbLifeline"/>
+        </mxCell>
+        <mxCell id="malfunction4" value="ACK" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="DbLifeline" target="FlaskLifeline"/>
+        </mxCell>
+        <mxCell id="malfunction5" value="Malfunction Reported" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="FlaskLifeline" target="AngularLifeline"/>
+        </mxCell>
+        <mxCell id="malfunction6" value="Confirmation Shown" style="dashed=1;endArrow=open;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell source="AngularLifeline" target="UserLifeline"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
