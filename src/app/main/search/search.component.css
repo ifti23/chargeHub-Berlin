@@ -1,4 +1,4 @@
-/* General styles */
+
 .search-container {
     max-width: 800px;
     margin: 0 auto;
@@ -14,7 +14,6 @@
     margin-bottom: 20px;
   }
   
-  /* Postal Code Search Form */
   .search-form {
     display: flex;
     flex-direction: column;
@@ -49,7 +48,6 @@
     background-color: #45a049;
   }
   
-  /* Stations List */
   .stations-list {
     margin-top: 20px;
   }
@@ -86,7 +84,6 @@
     background-color: #007B9E;
   }
   
-  /* Status Classes */
   .status {
     font-weight: bold;
   }
@@ -103,7 +100,6 @@
     color: red;
   }
   
-  /* No Stations Found */
   .no-stations {
     text-align: center;
     margin-top: 30px;
