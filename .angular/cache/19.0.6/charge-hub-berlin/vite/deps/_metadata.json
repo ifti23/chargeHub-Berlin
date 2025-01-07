@@ -1,34 +1,58 @@
 {
-  "hash": "74716e91",
-  "configHash": "c857317d",
-  "lockfileHash": "f1c61f44",
-  "browserHash": "2b7e3ef6",
+  "hash": "fe5eb2e4",
+  "configHash": "bce9ca61",
+  "lockfileHash": "cb545c1f",
+  "browserHash": "da0a79b6",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "2967c2bf",
+      "fileHash": "bbdab5fd",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "573f5d4c",
+      "fileHash": "8ebc7822",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "7ec16c91",
+      "fileHash": "756fba4b",
+      "needsInterop": false
+    },
+    "leaflet": {
+      "src": "../../../../../../node_modules/leaflet/dist/leaflet-src.js",
+      "file": "leaflet.js",
+      "fileHash": "3736d233",
+      "needsInterop": true
+    },
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "2030e20b",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "6b72de15",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-ER3M3KMN": {
-      "file": "chunk-ER3M3KMN.js"
+    "chunk-CFWMCVHB": {
+      "file": "chunk-CFWMCVHB.js"
     },
-    "chunk-MQYZJ3LV": {
-      "file": "chunk-MQYZJ3LV.js"
+    "chunk-GBGGMOOE": {
+      "file": "chunk-GBGGMOOE.js"
+    },
+    "chunk-5VGBLMCN": {
+      "file": "chunk-5VGBLMCN.js"
+    },
+    "chunk-3OV72XIM": {
+      "file": "chunk-3OV72XIM.js"
     }
   }
 }

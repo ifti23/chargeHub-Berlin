@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MapComponent } from "../../pages/map/map.component";
 
 @Component({
   selector: 'app-search',
-  imports: [],
+  imports: [MapComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
