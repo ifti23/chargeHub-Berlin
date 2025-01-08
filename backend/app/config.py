@@ -57,12 +57,16 @@ class Config:
     TESTING = False
 
 
-# class DevelopmentConfig(Config):
-#    """
-#    Development-specific configurations.
-#    """
-#    DEBUG = True
-#    SQLALCHEMY_DATABASE_URI = "postgresql://user:password@localhost/devdb"
+class DevelopmentConfig(Config):
+    """
+    PostgreSQL-specific configurations using psycopg2.
+    """
+
+    TESTING = False
+    SQLALCHEMY_DATABASE_URI = (
+        "postgresql+psycopg2://postgres:postgres@db:5432/chargeHub"
+    )
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class TestingConfig(Config):

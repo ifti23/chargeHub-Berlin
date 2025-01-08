@@ -34,7 +34,7 @@ class PostalCode(BaseModel):
     number = db.Column(Integer, nullable=False, unique=True)
     polygon = db.Column(Text, nullable=False)
     polygon_validation_regex = (
-        r"^POLYGON \(\(\d+(\.\d+)? \d+(\.\d+)?(, \d+(\.\d+)? \d+(\.\d+)?)*\)\)$"
+        r"^POLYGON \(\((\d+\.\d+\s\d+\.\d+,\s)*\d+\.\d+\s\d+\.\d+\)\)$"
     )
 
     def __init__(self, number: int, polygon: str):

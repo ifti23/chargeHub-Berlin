@@ -28,9 +28,7 @@ def init_user(application):
     """
     with application.app_context():
         try:
-            default_user = User(
-                username="max", password="Valid@1234", email="max@abc.test"
-            )
+            default_user = User(username="max", password="Valid@1234", email="max@abc.test")
             if not User.query.filter_by(username="max").first():
                 application.logger.info("Adding default user: max")
                 db.session.add(default_user)
@@ -38,8 +36,7 @@ def init_user(application):
         except SQLAlchemyError as db_err:
             application.logger.error(f"Database error: {db_err}")
         except UserValidationError as validation_err:
-            application.logger.error(f"User validation error: {str(validation_err)}")
-
+            application.logger.error(f"User validation error: {validation_err}")
 
 def load_charging_stations_data(application):
     """
