@@ -20,6 +20,11 @@ class PostalCodeValidationError(Exception):
     pass
 
 
+RE_POLYGON_VALIDATION_REGEX = (
+    r"^POLYGON \(\((\d+\.\d+\s\d+\.\d+,\s)*\d+\.\d+\s\d+\.\d+\)\)$"
+)
+
+
 class PostalCode(BaseModel):
     """
     Model for PostalCode.
@@ -33,9 +38,6 @@ class PostalCode(BaseModel):
 
     number = db.Column(Integer, nullable=False, unique=True)
     polygon = db.Column(Text, nullable=False)
-    polygon_validation_regex = (
-        r"^POLYGON \(\((\d+\.\d+\s\d+\.\d+,\s)*\d+\.\d+\s\d+\.\d+\)\)$"
-    )
 
     def __init__(self, number: int, polygon: str):
         if not self.number_is_valid(number):
@@ -64,7 +66,8 @@ class PostalCode(BaseModel):
             return False
         return 10115 <= number <= 14199
 
-    def polygon_is_valid(self, polygon: str) -> bool:
+    @staticmethod
+    def polygon_is_valid(polygon: str) -> bool:
         """
         Validate the polygon string.
 
@@ -76,4 +79,4 @@ class PostalCode(BaseModel):
         """
         if not isinstance(polygon, str):
             return False
-        return re.match(self.polygon_validation_regex, polygon) is not None
+        return re.match(RE_POLYGON_VALIDATION_REGEX, polygon) is not None

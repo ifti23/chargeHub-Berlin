@@ -118,8 +118,9 @@ class TestPostalCodeData(unittest.TestCase):
         self._skip_setup = True
         valid_polygon = "POLYGON ((13.426850722330673 52.5447395629012, 13.427585122330674 52.5446708929012))"
         invalid_polygon = "INVALID POLYGON FORMAT"
-        self.assertTrue(PostalCode.polygon_is_valid(polygon=valid_polygon))
-        self.assertFalse(PostalCode.polygon_is_valid(polygon=invalid_polygon))
+        valid_polygon = PostalCode(number=10405, polygon=valid_polygon)
+        self.assertTrue(valid_polygon.polygon_is_valid(polygon=valid_polygon))
+
 
 
 if __name__ == "__main__":

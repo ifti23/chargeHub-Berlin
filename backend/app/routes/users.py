@@ -120,3 +120,4 @@ def user_login():
         # Generate a JWT access token
         access_token = create_access_token(identity=user.username)
         return jsonify({"access_token": access_token}), 200
+    return jsonify({"error": "Invalid credentials"}), 401

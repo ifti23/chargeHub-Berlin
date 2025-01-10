@@ -182,6 +182,7 @@ class TestUserAPI(unittest.TestCase):
             json={"username": "testuser", "password": "wrongpassword"},
         )
         self.assertEqual(response.status_code, 401)
+        self.assertIn("Invalid credentials", response.get_json().get("message"))
 
     def test_get_users_protected(self):
         """

@@ -23,10 +23,7 @@ Functions:
 import unittest
 
 from app.entities.base import db
-from app.entities.charging_station import (
-    ChargingStation,
-    ChargingStationValidationError,
-)
+from app.entities.charging_station import ChargingStation
 from app.entities.postal_code import PostalCode
 
 from app import create_app
@@ -88,7 +85,7 @@ class TestChargingStation(unittest.TestCase):
         """
         Test creating a charging station with an invalid latitude.
         """
-        with self.assertRaises(ChargingStationValidationError):
+        with self.assertRaises(ValueError):
             ChargingStation(
                 functional=True,
                 postal_code_id=1,
@@ -102,7 +99,7 @@ class TestChargingStation(unittest.TestCase):
         """
         Test creating a charging station with an invalid longitude.
         """
-        with self.assertRaises(ChargingStationValidationError):
+        with self.assertRaises(ValueError):
             ChargingStation(
                 functional=True,
                 postal_code_id=1,
