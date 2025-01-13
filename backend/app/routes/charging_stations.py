@@ -40,7 +40,7 @@ def get_charging_stations():
             {
                 "id": 1,
                 "functional": true,
-                "postal_code_id": 10115,
+                "postal_code_number": 10115,
                 "street": "Example Street",
                 "house_number": "42",
                 "latitude": 52.5200,
