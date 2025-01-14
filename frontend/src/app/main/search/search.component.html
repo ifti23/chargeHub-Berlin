@@ -1,43 +1,45 @@
 <div class="search-container">
-    <h2>Search Charging Stations</h2>
-  
-    <form class="search-form">
-      <label for="postalCode">Enter Postal Code</label>
-      <input 
-        type="text" 
-        id="postalCode" 
-        name="postalCode" 
-        placeholder="Enter your postal code" 
-        required 
-      />
-      <button type="submit">Search</button>
-    </form>
-  
-    <div class="stations-list">
-      <p>Stations near postal code: <span class="postal-code">12345</span></p>
-      <div class="station-card">
-        <h3>Station 1</h3>
-        <p>Status: <span class="status available">Available</span></p>
-        <button class="view-details">View Details</button>
-      </div>
-      <div class="station-card">
-        <h3>Station 2</h3>
-        <p>Status: <span class="status in-use">In Use</span></p>
-        <button class="view-details">View Details</button>
-      </div>
-      <div class="station-card">
-        <h3>Station 3</h3>
-        <p>Status: <span class="status under-maintenance">Under Maintenance</span></p>
-        <button class="view-details">View Details</button>
-      </div>
-    </div>
-  
-    <div class="no-stations">
-      <p>No stations found for this postal code. Try another search.</p>
+  <h2>Search Charging Stations</h2>
+
+  <form class="search-form" (ngSubmit)="onSubmit()">
+    <label for="postalCode">Enter Postal Code</label>
+    <input
+      type="text"
+      id="postalCode"
+      name="postalCode"
+      [(ngModel)]="postalCode"
+      placeholder="Enter your postal code"
+      required
+    />
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="stations-list" *ngIf="stations.length > 0">
+    <p>Stations near postal code: <span class="postal-code">{{ postalCode }}</span></p>
+    <div class="station-card" *ngFor="let station of stations">
+      <h3>{{ station.street }} {{ station.house_number }}</h3>
+      <p>Status: 
+        <span class="status" [ngClass]="{
+          'available': station.functional,
+          'in-use': !station.functional
+        }">
+          {{ station.functional ? 'Available' : 'In Use' }}
+        </span>
+      </p>
+      <p>Latitude: {{ station.latitude }}, Longitude: {{ station.longitude }}</p>
+      <button class="view-details">View Details</button>
     </div>
   </div>
 
-  <div style="margin-left: 37%;">
-    <app-map></app-map> <!-- Child component is integrated here -->
+  <div class="no-stations" *ngIf="noStationsFound">
+    <p>No stations found for this postal code. Try another search.</p>
   </div>
-  
+
+  <div class="error-message" *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>
+
+<div style="margin-left: 37%;">
+  <div id="map" style="height: 500px; width: 50%; margin-top: 20px;"></div>
+</div>

@@ -1,29 +1,30 @@
 <div class="page-background">
     <div class="form-container">
-        <h2>Sign Up</h2>
-        <form id="signup-form">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-
-            <button type="submit">Sign Up</button>
-        </form>
-        <p>Already have an account? <a href="/signin">Sign In</a></p>
+      <h2>Sign Up</h2>
+      <form id="signup-form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" [(ngModel)]="username" name="username" placeholder="Enter your username" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="Enter your email address" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" [(ngModel)]="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Enter your password" required>
+        </div>
+  
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a routerLink="/signin">Sign In</a></p>
     </div>
-</div>
+  </div>
+  
