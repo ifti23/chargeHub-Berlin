@@ -12,7 +12,7 @@ import csv
 import os
 
 from app.entities.base import db
-from app.entities.charging_station import ChargingStation
+from app.entities.charging_station import ChargingStation, ChargingType, OperationStatus
 from app.entities.postal_code import PostalCode
 from app.entities.user import User, UserValidationError
 from flask import Flask
@@ -28,7 +28,9 @@ def init_user(application):
     """
     with application.app_context():
         try:
-            default_user = User(username="max", password="Valid@1234", email="max@abc.test")
+            default_user = User(
+                username="max", password="Valid@1234", email="max@abc.test"
+            )
             if not User.query.filter_by(username="max").first():
                 application.logger.info("Adding default user: max")
                 db.session.add(default_user)
@@ -36,7 +38,8 @@ def init_user(application):
         except SQLAlchemyError as db_err:
             application.logger.error(f"Database error: {db_err}")
         except UserValidationError as validation_err:
-            application.logger.error(f"User validation error: {validation_err}")
+            application.logger.error(f"User validation error: {str(validation_err)}")
+
 
 def load_charging_stations_data(application):
     """
@@ -69,14 +72,22 @@ def load_charging_stations_data(application):
 
                     latitude = float(row["Breitengrad"].replace(",", "."))
                     longitude = float(row["Längengrad"].replace(",", "."))
+                    nominal_power = float(row["Nennleistung Ladeeinrichtung [kW]"].replace(",", ".")) if row.get("Nennleistung Ladeeinrichtung [kW]") else None
+                    charging_type = ChargingType.convert(row.get("Art der Ladeeinrichung"))
+                    num_charging_points = int(row["Anzahl Ladepunkte"]) if row.get("Anzahl Ladepunkte") else None
 
                     charging_station = ChargingStation(
-                        functional=True,
+                        functional=OperationStatus.OPERATIONAL,
                         postal_code_id=postal_code.id,
                         street=row["Straße"],
                         house_number=row["Hausnummer"],
                         latitude=latitude,
                         longitude=longitude,
+                        operator=row["Betreiber"],
+                        address_suffix=row["Adresszusatz"],
+                        nominal_power=nominal_power,
+                        charging_type=charging_type,
+                        num_charging_points=num_charging_points,
                     )
                     db.session.add(charging_station)
                 db.session.commit()
@@ -86,6 +97,7 @@ def load_charging_stations_data(application):
             application.logger.error(f"Error processing CSV file: {csv_err}")
         except SQLAlchemyError as db_err:
             application.logger.error(f"Database error: {db_err}")
+
 
 
 def load_postal_code_data(application):
