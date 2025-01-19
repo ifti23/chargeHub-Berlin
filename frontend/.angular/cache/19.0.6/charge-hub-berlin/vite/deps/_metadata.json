@@ -1,50 +1,50 @@
 {
-  "hash": "065b2104",
-  "configHash": "6c91a509",
-  "lockfileHash": "1c0f885d",
-  "browserHash": "a3cf8c0d",
+  "hash": "150303dc",
+  "configHash": "a1de0852",
+  "lockfileHash": "017df67b",
+  "browserHash": "b41def10",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "94b0928e",
+      "fileHash": "5eec2be0",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "91867815",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "6eada29c",
+      "fileHash": "94fed718",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "3dcdd5ef",
+      "fileHash": "28ac874c",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "1e843a6f",
+      "fileHash": "632dc847",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "88d995d5",
+      "fileHash": "bad080b4",
       "needsInterop": false
     },
     "leaflet": {
       "src": "../../../../../../node_modules/leaflet/dist/leaflet-src.js",
       "file": "leaflet.js",
-      "fileHash": "3fa4c49d",
+      "fileHash": "c50639a3",
       "needsInterop": true
-    },
-    "@angular/common/http": {
-      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
-      "file": "@angular_common_http.js",
-      "fileHash": "bc2d9f4f",
-      "needsInterop": false
     }
   },
   "chunks": {
