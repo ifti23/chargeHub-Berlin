@@ -10,16 +10,10 @@ class OperationStatus(Enum):
     USED = "used"
     MALFUNCTIONING = "malfunctioning"
 
-    def __str__(self):
-        return self.value
-
 
 class ChargingType(Enum):
     FAST = "fast"
     NORMAL = "normal"
-
-    def __str__(self):
-        return self.value
 
     @staticmethod
     def convert(value: str):
@@ -61,11 +55,7 @@ class ChargingStation(BaseModel):
 
     __tablename__ = "charging_stations"
 
-    functional = db.Column(
-        SQLAlchemyEnum(OperationStatus),
-        nullable=False,
-        default=OperationStatus.OPERATIONAL,
-    )
+    functional = db.Column(SQLAlchemyEnum(OperationStatus), nullable=False, default=OperationStatus.OPERATIONAL)
     postal_code_id = db.Column(Integer, ForeignKey("postal_codes.id"), nullable=False)
     postal_code = relationship("PostalCode", backref="charging_stations")
     street = db.Column(String(255), nullable=False)
@@ -175,11 +165,7 @@ class ChargingStation(BaseModel):
         Returns:
             bool: True if valid, False otherwise.
         """
-        return (
-            num_charging_points is not None
-            and isinstance(num_charging_points, int)
-            and num_charging_points > 0
-        )
+        return num_charging_points is not None and isinstance(num_charging_points, int) and num_charging_points > 0
 
     @staticmethod
     def is_valid_operator(operator: str) -> bool:
@@ -192,11 +178,7 @@ class ChargingStation(BaseModel):
         Returns:
             bool: True if valid, False otherwise.
         """
-        return (
-            operator is not None
-            and isinstance(operator, str)
-            and len(operator.strip()) > 0
-        )
+        return operator is not None and isinstance(operator, str) and len(operator.strip()) > 0
 
     @staticmethod
     def is_valid_address_suffix(address_suffix: str) -> bool:

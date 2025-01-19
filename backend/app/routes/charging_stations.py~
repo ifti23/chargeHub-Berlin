@@ -10,7 +10,7 @@ Blueprints:
 
 Endpoints:
     - GET /: Retrieves all charging stations and their attributes.
-    - POST /deactivate?station_id=<int:station_id>&new_status=operational: Deactivates a specific charging station (requires authentication).
+    - POST /<int:station_id>/deactivate: Deactivates a specific charging station (requires authentication).
     - GET /postal_code/<int:postal_code>: Retrieves all charging stations for a given postal code.
 
 Functions:
@@ -45,16 +45,12 @@ def serialize_charging_station(station: ChargingStation) -> dict:
         "num_charging_points": station.num_charging_points,
     }
 
-
 @charging_stations.route("/", methods=["GET"])
 def get_charging_stations():
     """Retrieve all charging stations from the database.
 
     Returns:
         JSON: A list of charging stations with their attributes.
-
-    Example URL:
-        http://127.0.0.1:5000/api/charging_stations/
 
     Example Response:
         [
@@ -116,24 +112,14 @@ def deactivate_charging_station():
         new_status = request.args.get("new_status", type=str)
 
         if not station_id or not new_status:
-            return (
-                jsonify({"error": "Both 'station_id' and 'new_status' are required."}),
-                400,
-            )
+            return jsonify({"error": "Both 'station_id' and 'new_status' are required."}), 400
 
         station = ChargingStation.query.get(station_id)
         if not station:
             return jsonify({"error": "Charging station not found."}), 404
 
         if new_status.upper() not in OperationStatus.__members__:
-            return (
-                jsonify(
-                    {
-                        "error": "Invalid status. Must be one of: operational, used, malfunctioning."
-                    }
-                ),
-                400,
-            )
+            return jsonify({"error": "Invalid status. Must be one of: operational, used, malfunctioning."}), 400
 
         # Update the station's functional status
         station.functional = OperationStatus[new_status.upper()]

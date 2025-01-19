@@ -12,7 +12,7 @@ import csv
 import os
 
 from app.entities.base import db
-from app.entities.charging_station import ChargingStation
+from app.entities.charging_station import ChargingStation, ChargingType, OperationStatus
 from app.entities.postal_code import PostalCode
 from app.entities.user import User, UserValidationError
 from flask import Flask
@@ -72,14 +72,34 @@ def load_charging_stations_data(application):
 
                     latitude = float(row["Breitengrad"].replace(",", "."))
                     longitude = float(row["Längengrad"].replace(",", "."))
+                    nominal_power = (
+                        float(
+                            row["Nennleistung Ladeeinrichtung [kW]"].replace(",", ".")
+                        )
+                        if row.get("Nennleistung Ladeeinrichtung [kW]")
+                        else None
+                    )
+                    charging_type = ChargingType.convert(
+                        row.get("Art der Ladeeinrichung")
+                    )
+                    num_charging_points = (
+                        int(row["Anzahl Ladepunkte"])
+                        if row.get("Anzahl Ladepunkte")
+                        else None
+                    )
 
                     charging_station = ChargingStation(
-                        functional=True,
+                        functional=OperationStatus.OPERATIONAL,
                         postal_code_id=postal_code.id,
                         street=row["Straße"],
                         house_number=row["Hausnummer"],
                         latitude=latitude,
                         longitude=longitude,
+                        operator=row["\ufeffBetreiber"],
+                        address_suffix=row["Adresszusatz"],
+                        nominal_power=nominal_power,
+                        charging_type=charging_type,
+                        num_charging_points=num_charging_points,
                     )
                     db.session.add(charging_station)
                 db.session.commit()
