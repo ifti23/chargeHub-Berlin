@@ -105,4 +105,23 @@
     margin-top: 30px;
     color: #999;
   }
+  .station-card select {
+    padding: 5px;
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .station-card button.update-status-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .station-card button.update-status-btn:hover {
+    background-color: #45a049;
+  }
+  
   

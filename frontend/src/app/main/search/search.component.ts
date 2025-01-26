@@ -16,7 +16,7 @@ export class SearchComponent implements AfterViewInit {
   errorMessage: string = '';
   noStationsFound: boolean = false;
   map!: L.Map;
-
+  STATUS_OPTIONS = ["Operational", "Used", "Malfunctioning"];
   constructor(private http: HttpClient) {}
 
   ngAfterViewInit(): void {
@@ -31,14 +31,18 @@ export class SearchComponent implements AfterViewInit {
 
   onSubmit(): void {
     const apiUrl = `http://127.0.0.1:5000/api/charging_stations/postal_code/${this.postalCode}`;
-
+  
     this.errorMessage = '';
     this.noStationsFound = false;
-
+  
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
-        this.stations = response;
-
+        this.stations = response.map((station: any) => ({
+          ...station,
+          status: this.mapFunctionalToStatus(station.functional),
+          newStatus: this.mapFunctionalToStatus(station.functional),
+        }));
+        console.log('Stations:', response);
         if (this.stations.length === 0) {
           this.noStationsFound = true;
         } else {
@@ -46,9 +50,15 @@ export class SearchComponent implements AfterViewInit {
         }
       },
       error: (error) => {
-        this.errorMessage = 'Failed to fetch charging stations. Please try again.';
+        if (error.status === 404) {
+          this.errorMessage = 'Failed to fetch charging stations. Please try again.';
+          this.stations = [];
+          this.displayStationsOnMap(this.stations);
+        } else {
+          this.errorMessage = 'An error occurred. Please try again.';
+        }
         console.error(error);
-      }
+      },
     });
   }
 
@@ -60,17 +70,44 @@ export class SearchComponent implements AfterViewInit {
       }
     });
 
-
     stations.forEach(station => {
       const marker = L.marker([station.latitude, station.longitude]).addTo(this.map);
+    
+     
       marker.bindPopup(`
         <b>${station.name || 'Charging Station'}</b><br>
         Address: ${station.street || 'N/A'} ${station.house_number || ''}<br>
-        Status: ${station.functional ? 'Available' : 'In Use'}
+        Status: ${station.status || 'N/A'}<br>
       `);
     });
 
     const bounds = L.latLngBounds(stations.map(station => [station.latitude, station.longitude]));
     this.map.fitBounds(bounds);
+  }
+
+  mapFunctionalToStatus(functional: string): string {
+    if (functional === 'operational') {
+      return 'Operational';
+    } else if (functional === 'used') {
+      return 'Used';
+    } else if (functional === 'malfunctioning') {
+      return 'Malfunctioning';
+    }
+    return 'Unknown';
+  }
+
+  updateStationStatus(station: any) {
+    const apiUrl = `http://127.0.0.1:5000/api/charging_stations/change_status?station_id=${station.id}&new_status=${station.newStatus.toLowerCase()}`;
+    
+    this.http.post(apiUrl, {}).subscribe({
+      next: () => {
+        station.status = station.newStatus; 
+        console.log(`Station ID ${station.id} updated to ${station.newStatus}`);
+      },
+      error: (err) => {
+        console.error('Error updating station status:', err);
+        alert('Failed to update station status. Please try again.');
+      }
+    });
   }
 }

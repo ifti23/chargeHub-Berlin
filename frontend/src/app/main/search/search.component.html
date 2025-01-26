@@ -19,15 +19,31 @@
     <div class="station-card" *ngFor="let station of stations">
       <h3>{{ station.street }} {{ station.house_number }}</h3>
       <p>Status: 
-        <span class="status" [ngClass]="{
-          'available': station.functional,
-          'in-use': !station.functional
-        }">
-          {{ station.functional ? 'Available' : 'In Use' }}
+        <span 
+          class="status" 
+          [ngClass]="{
+            'operational': station.status === 'Operational',
+            'used': station.status === 'Used',
+            'malfunctioning': station.status === 'Malfunctioning'
+          }">
+          {{ station.status }}
         </span>
       </p>
       <p>Latitude: {{ station.latitude }}, Longitude: {{ station.longitude }}</p>
-      <button class="view-details">View Details</button>
+      <form (ngSubmit)="updateStationStatus(station)">
+        <label for="statusSelect-{{ station.id }}">Change Status:</label>
+        <select
+          id="statusSelect-{{ station.id }}"
+          [(ngModel)]="station.newStatus"
+          name="newStatus"
+          required
+        >
+          <option *ngFor="let status of STATUS_OPTIONS" [value]="status">
+            {{ status }}
+          </option>
+        </select>
+        <button type="submit" class="update-status-btn">Submit</button>
+      </form>
     </div>
   </div>
 

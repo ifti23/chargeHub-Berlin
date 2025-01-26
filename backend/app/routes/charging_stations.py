@@ -85,8 +85,7 @@ def get_charging_stations():
         return jsonify({"error": f"Failed to retrieve charging stations: {e}"}), 500
 
 
-@charging_stations.route("/deactivate", methods=["POST"])
-@jwt_required()  # Requires the user to be logged in
+@charging_stations.route("/change_status", methods=["POST"])
 def deactivate_charging_station():
     """Update the operational status of a charging station.
 
