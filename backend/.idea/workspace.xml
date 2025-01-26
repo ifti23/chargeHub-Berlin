@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="53bf59ee-70db-4f57-9d83-c151d5d05c18" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Rabe-Rejerda&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1736788241" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="develop/rest-api" />
+                    <option name="lastUsedInstant" value="1736788196" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ifti23/chargeHub-Berlin.git&quot;,
+    &quot;accountId&quot;: &quot;eb74fe7c-1b9a-4a8d-8a78-40b1e333b88c&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2r7cKtYHY78he2nYwiST4txtmpK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for test_database_operations.test_charging_station_operations.TestChargingStationOperations.executor": "Run",
+    "Python tests.Python tests for test_database_operations.test_charging_station_operations.TestChargingStationOperations.test_get_all_charging_stations.executor": "Run",
+    "Python tests.Python tests for test_database_operations.test_charging_station_operations.TestChargingStationOperations.test_get_charging_stations_by_postal_code.executor": "Run",
+    "Python tests.Python tests for test_database_operations.test_charging_station_operations.TestChargingStationOperations.test_update_charging_station_status.executor": "Debug",
+    "Python tests.Python tests for test_database_operations.test_postal_code_operations.TestPostalCodeOperations.test_get_postal_code_details.executor": "Run",
+    "Python tests.Python tests for test_database_operations.test_postal_code_operations.TestPostalCodeOperations.test_is_valid.executor": "Run",
+    "Python tests.Python tests for test_database_operations.test_user_operations.TestChargingStationOperations.executor": "Run",
+    "Python tests.Python tests for test_database_operations.test_user_operations.TestUserOperations.executor": "Debug",
+    "Python tests.Python tests for test_database_operations.test_user_operations.TestUserOperations.test_get_user_by_username_or_email.executor": "Run",
+    "Python tests.Python tests for test_database_operations.test_user_operations.TestUserOperations.test_user_exists.executor": "Run",
+    "Python tests.Python tests for test_entities.test_charging_station.TestChargingStation.executor": "Run",
+    "Python tests.Python tests for test_entities.test_charging_station.TestChargingStationDB.test_charging_station_creation.executor": "Run",
+    "Python tests.Python tests for test_entities.test_postal_codes.TestPostalCodeData.executor": "Run",
+    "Python tests.Python tests for test_entities.test_postal_codes.TestPostalCodeData.test_csv_data_matches_database.executor": "Run",
+    "Python tests.Python tests for test_entities.test_postal_codes.TestPostalCodeData.test_invalid_number_is_valid.executor": "Run",
+    "Python tests.Python tests for test_entities.test_postal_codes.TestPostalCodeData.test_polygon_is_valid.executor": "Run",
+    "Python tests.Python tests for test_entities.test_postal_codes.TestPostalCodeDataDB.test_csv_data_matches_database.executor": "Run",
+    "Python tests.Python tests for test_entities.test_user.TestUserClass.executor": "Run",
+    "Python tests.Python tests for test_events.test_charging_station_events.test_init_ui_charging_stations_event.TestInitUIChargingStationsEvent.test_internal_server_error.executor": "Run",
+    "Python tests.Python tests for test_events.test_charging_station_events.test_init_ui_charging_stations_event.TestInitUIChargingStationsEvent.test_successful_retrieval.executor": "Run",
+    "Python tests.Python tests for test_events.test_charging_station_events.test_report_charging_station_event.TestReportChargingStationEvent.test_successful_status_update.executor": "Run",
+    "Python tests.Python tests for test_events.test_charging_station_events.test_search_postal_code_event.TestSearchPostalCodeEvent.test_internal_server_error.executor": "Run",
+    "Python tests.Python tests for test_events.test_charging_station_events.test_search_postal_code_event.TestSearchPostalCodeEvent.test_invalid_input_data.executor": "Run",
+    "Python tests.Python tests for test_events.test_charging_station_events.test_search_postal_code_event.TestSearchPostalCodeEvent.test_postal_code_not_found.executor": "Run",
+    "Python tests.Python tests for test_events.test_charging_station_events.test_search_postal_code_event.TestSearchPostalCodeEvent.test_successful_postal_code_search.executor": "Run",
+    "Python tests.Python tests for test_events.test_test_connection_event.TestHelloWorldEvent.executor": "Run",
+    "Python tests.Python tests for test_events.test_test_connection_event.TestHelloWorldEvent.test_hello_world.executor": "Run",
+    "Python tests.Python tests for test_events.test_test_connection_event.TestTestConnectionEvent.executor": "Run",
+    "Python tests.Python tests for test_events.test_user_events.test_user_login_event.TestUserLoginEvent.executor": "Run",
+    "Python tests.Python tests for test_events.test_user_events.test_user_login_event.TestUserLoginEvent.test_invalid_credentials.executor": "Run",
+    "Python tests.Python tests for test_events.test_user_events.test_user_login_event.TestUserLoginEvent.test_missing_request_data.executor": "Debug",
+    "Python tests.Python tests for test_events.test_user_events.test_user_login_event.TestUserLoginEvent.test_missing_username_or_password.executor": "Run",
+    "Python tests.Python tests for test_events.test_user_events.test_user_login_event.TestUserLoginEvent.test_successful_login.executor": "Run",
+    "Python tests.Python tests for test_events.test_user_events.test_user_registration_event.TestUserLoginEvent.test_successful_login.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_deactivate_charging_station.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_deactivate_charging_station_invalid_status.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_deactivate_charging_station_not_logged_in.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_deactivate_nonexistent_charging_station.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_get_charging_stations.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_get_charging_stations_by_invalid_postal_code.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_get_charging_stations_by_postal_code.executor": "Run",
+    "Python tests.Python tests for test_routes.test_charging_station.TestChargingStationRoutes.test_get_charging_stations_invalid_postal_code_format.executor": "Run",
+    "Python tests.Python tests for test_routes.test_postal_code.TestPostalCodeRoutes.executor": "Run",
+    "Python tests.Python tests for test_routes.test_postal_code.TestPostalCodeRoutes.test_get_postal_codes.executor": "Debug",
+    "Python tests.Python tests for test_routes.test_postal_code.TestPostalCodeRoutes.test_get_postal_codes_all_exist.executor": "Run",
+    "Python tests.Python tests for test_routes.test_postal_code.TestPostalCodeRoutes.test_get_postal_codes_db_error.executor": "Run",
+    "Python tests.Python tests for test_routes.test_postal_code.TestPostalCodeRoutes.test_get_singel_postal_code.executor": "Run",
+    "Python tests.Python tests for test_routes.test_postal_code.TestPostalCodeRoutes.test_get_single_postal_code.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.test_get_users.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.test_get_users_protected.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.test_get_users_unprotected.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.test_login_user_email.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.test_login_user_invalid_credentials.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.test_login_user_username.executor": "Run",
+    "Python tests.Python tests for test_routes.test_users.TestUserAPI.test_register_user.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_get_all_charging_stations.TestGetAllChargingStationsService.test_database_error.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_get_all_charging_stations.TestGetAllChargingStationsService.test_successful_retrieval.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_postal_code_search_service.TestSearchPostalCodeService.test_database_error.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_postal_code_search_service.TestSearchPostalCodeService.test_invalid_postal_code.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_postal_code_search_service.TestSearchPostalCodeService.test_successful_search.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_report_charging_station_service.TestChangeChargingStationStatus.test_database_error.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_report_charging_station_service.TestChangeChargingStationStatus.test_invalid_status.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_report_charging_station_service.TestChangeChargingStationStatus.test_non_existent_station.executor": "Run",
+    "Python tests.Python tests for test_services.test_charging_station_services.test_report_charging_station_service.TestChangeChargingStationStatus.test_successful_status_update.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_login_service.TestUserLoginService.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_login_service.TestUserLoginService.test_database_error.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_login_service.TestUserLoginService.test_invalid_password.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_login_service.TestUserLoginService.test_successful_login.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_login_service.TestUserLoginService.test_user_not_found.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_register_service.TestUserRegisterService.test_database_error.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_register_service.TestUserRegisterService.test_duplicate_email_registration.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_register_service.TestUserRegisterService.test_missing_required_fields.executor": "Run",
+    "Python tests.Python tests for test_services.test_user_register_service.TestUserRegisterService.test_successful_registration.executor": "Run",
+    "Python tests.Python tests in test_charging_station.py (1).executor": "Run",
+    "Python tests.Python tests in test_charging_station.py.executor": "Run",
+    "Python tests.Python tests in test_postal_codes.py.executor": "Run",
+    "Python tests.Python tests in test_report_charging_station_event.py.executor": "Run",
+    "Python tests.Python tests in test_user.py.executor": "Run",
+    "Python tests.Python tests in test_user_login_service.py.executor": "Run",
+    "Python tests.Python tests in test_user_operations.py.executor": "Run",
+    "Python tests.Python tests in test_users.py.executor": "Run",
+    "Python.run.executor": "Run",
+    "Python.runner.executor": "Run",
+    "Python.temp.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "G:/DefnitvKeep/Uni/BHT/Data_Science/Sem_01/Advanced_Software/Project/chargeHub-Berlin/backend",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\DefnitvKeep\Uni\BHT\Data_Science\Sem_01\Advanced_Software\Project\chargeHub-Berlin\backend\tests\test_services\test_user_services" />
+      <recent name="G:\DefnitvKeep\Uni\BHT\Data_Science\Sem_01\Advanced_Software\Project\chargeHub-Berlin\backend\app\domain\services\charging_staion_services" />
+      <recent name="G:\DefnitvKeep\Uni\BHT\Data_Science\Sem_01\Advanced_Software\Project\chargeHub-Berlin\backend\app\domain\services\user_services" />
+      <recent name="G:\DefnitvKeep\Uni\BHT\Data_Science\Sem_01\Advanced_Software\Project\chargeHub-Berlin\backend\app\events\charging_station_events" />
+      <recent name="G:\DefnitvKeep\Uni\BHT\Data_Science\Sem_01\Advanced_Software\Project\chargeHub-Berlin\backend\app\events\user_events" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_events.test_test_connection_event.TestTestConnectionEvent">
+    <configuration name="Python tests for test_events.test_charging_station_events.test_report_charging_station_event.TestReportChargingStationEvent.test_successful_status_update" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_events.test_charging_station_events.test_report_charging_station_event.TestReportChargingStationEvent.test_successful_status_update&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_events.test_charging_station_events.test_search_postal_code_event.TestSearchPostalCodeEvent.test_internal_server_error" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_events.test_charging_station_events.test_search_postal_code_event.TestSearchPostalCodeEvent.test_internal_server_error&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_events.test_test_connection_event.TestHelloWorldEvent.test_hello_world" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_events.test_test_connection_event.TestHelloWorldEvent.test_hello_world&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_events.test_test_connection_event.TestTestConnectionEvent" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_events.test_test_connection_event.TestTestConnectionEvent&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_report_charging_station_event.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_events/test_charging_station_events/test_report_charging_station_event.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_events.test_test_connection_event.TestTestConnectionEvent" />
+        <item itemvalue="Python tests.Python tests for test_events.test_test_connection_event.TestHelloWorldEvent.test_hello_world" />
+        <item itemvalue="Python tests.Python tests in test_report_charging_station_event.py" />
+        <item itemvalue="Python tests.Python tests for test_events.test_charging_station_events.test_report_charging_station_event.TestReportChargingStationEvent.test_successful_status_update" />
+        <item itemvalue="Python tests.Python tests for test_events.test_charging_station_events.test_search_postal_code_event.TestSearchPostalCodeEvent.test_internal_server_error" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53bf59ee-70db-4f57-9d83-c151d5d05c18" name="Changes" comment="" />
+      <created>1735913492867</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735913492867</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_routes/test_charging_station.py</url>
+          <line>183</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_routes/test_charging_station.py</url>
+          <line>99</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/run.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_services/test_user_services/test_user_register_service.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/domain/services/user_services/user_register_service.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
