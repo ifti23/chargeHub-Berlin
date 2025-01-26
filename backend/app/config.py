@@ -63,6 +63,7 @@ class DevelopmentConfig(Config):
     """
 
     TESTING = False
+    # in development use a better password
     SQLALCHEMY_DATABASE_URI = (
         "postgresql+psycopg2://postgres:postgres@db:5432/chargeHub"
     )
@@ -75,7 +76,6 @@ class TestingConfig(Config):
     """
 
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"  # In-memory database for tests
 
 
 class TestingConfigSimple(Config):
@@ -85,12 +85,4 @@ class TestingConfigSimple(Config):
     """
 
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"  # In-memory database for tests
     INIT_DATA = False
-
-
-# class ProductionConfig(Config):
-#    """
-#    Production-specific configurations.
-#    """
-#    SQLALCHEMY_DATABASE_URI = "postgresql://user:password@localhost/proddb"

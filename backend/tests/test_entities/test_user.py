@@ -7,10 +7,9 @@ Test Cases:
 
 import unittest
 
-from app.entities.base import db
-from app.entities.user import User, UserValidationError
-
 from app import create_app
+from app.domain.entities.templates.base import db
+from app.domain.entities.user import User, UserValidationError
 
 
 class TestUserClass(unittest.TestCase):

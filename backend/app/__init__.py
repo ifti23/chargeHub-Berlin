@@ -11,10 +11,14 @@ Functions:
 import csv
 import os
 
-from app.entities.base import db
-from app.entities.charging_station import ChargingStation, ChargingType, OperationStatus
-from app.entities.postal_code import PostalCode
-from app.entities.user import User, UserValidationError
+from app.domain.entities.charging_station import (
+    ChargingStation,
+    ChargingType,
+    OperationStatus,
+)
+from app.domain.entities.postal_code import PostalCode
+from app.domain.entities.templates.base import db
+from app.domain.entities.user import User, UserValidationError
 from flask import Flask
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
@@ -90,7 +94,7 @@ def load_charging_stations_data(application):
 
                     charging_station = ChargingStation(
                         functional=OperationStatus.OPERATIONAL,
-                        postal_code_id=postal_code.id,
+                        postal_code_id=postal_code.number,
                         street=row["Straße"],
                         house_number=row["Hausnummer"],
                         latitude=latitude,
@@ -176,20 +180,19 @@ def create_app(config_class="config.Config"):
         init_user(application)
 
     # Register Blueprints
-    from app.routes.charging_stations import charging_stations
-    from app.routes.postal_codes import get_postal_codes
-    from app.routes.users import get_users, login_user, register_user
-    from app.routes.home import home
+    from app.events.charging_station_events import charging_stations
+    from app.events.test_connection_event import home
+    from app.events.user_events import login_user, register_user
 
     # Register the blueprint
     application.register_blueprint(home, url_prefix="/")
-
     application.register_blueprint(
         charging_stations, url_prefix="/api/charging_stations"
     )
-    application.register_blueprint(get_users, url_prefix="/api/users")
     application.register_blueprint(register_user, url_prefix="/api/register_user")
     application.register_blueprint(login_user, url_prefix="/api/login_user")
-    application.register_blueprint(get_postal_codes, url_prefix="/api/postal_codes")
+
+    for rule in application.url_map.iter_rules():
+        print(f"{rule.endpoint}: {rule}")
 
     return application

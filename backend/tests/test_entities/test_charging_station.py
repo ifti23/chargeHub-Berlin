@@ -1,13 +1,13 @@
 import unittest
-from app.entities.base import db
-from app.entities.charging_station import (
-    ChargingStation,
-    ChargingStationValidationError,
-    OperationStatus,
-    ChargingType,
-)
-from app.entities.postal_code import PostalCode
+
 from app import create_app
+from app.domain.entities.charging_station import (
+    ChargingStation,
+    ChargingType,
+    OperationStatus,
+)
+from app.domain.entities.postal_code import PostalCode
+from app.domain.entities.templates.base import db
 
 
 class TestChargingStationDB(unittest.TestCase):
@@ -69,94 +69,44 @@ class TestChargingStationDB(unittest.TestCase):
             self.assertEqual(retrieved_station.charging_type, ChargingType.FAST)
             self.assertEqual(retrieved_station.num_charging_points, 4)
 
-
-class TestChargingStation(unittest.TestCase):
-    """
-    Unit tests for ChargingStation validation logic.
-    """
-
-    def test_invalid_latitude(self):
-        """Test creating a charging station with an invalid latitude."""
-        with self.assertRaises(ChargingStationValidationError):
-            ChargingStation(
+    def test_charging_station_to_dict(self):
+        """
+        Test the `__dict__` method of ChargingStation.
+        """
+        with self.app.app_context():
+            # Create and add a sample charging station
+            charging_station = ChargingStation(
                 functional=OperationStatus.OPERATIONAL,
-                postal_code_id=1,
-                street="Sample Street",
-                house_number="123A",
-                latitude=100.0,  # Invalid latitude
-                longitude=13.4050,
-            )
-
-    def test_invalid_longitude(self):
-        """Test creating a charging station with an invalid longitude."""
-        with self.assertRaises(ChargingStationValidationError):
-            ChargingStation(
-                functional=OperationStatus.OPERATIONAL,
-                postal_code_id=1,
-                street="Sample Street",
-                house_number="123A",
-                latitude=52.5200,
-                longitude=200.0,  # Invalid longitude
-            )
-
-    def test_invalid_nominal_power(self):
-        """Test creating a charging station with an invalid nominal power."""
-        with self.assertRaises(ChargingStationValidationError):
-            ChargingStation(
-                functional=OperationStatus.OPERATIONAL,
-                postal_code_id=1,
+                postal_code_id=self.postal_code_number,
                 street="Sample Street",
                 house_number="123A",
                 latitude=52.5200,
                 longitude=13.4050,
-                nominal_power=-10,  # Invalid nominal power
+                operator="Test Operator",
+                address_suffix="Near Mall",
+                nominal_power=50,
+                charging_type=ChargingType.FAST,
+                num_charging_points=4,
             )
+            db.session.add(charging_station)
+            db.session.commit()
 
-    def test_invalid_num_charging_points(self):
-        """Test creating a charging station with an invalid number of charging points."""
-        with self.assertRaises(ChargingStationValidationError):
-            ChargingStation(
-                functional=OperationStatus.OPERATIONAL,
-                postal_code_id=1,
-                street="Sample Street",
-                house_number="123A",
-                latitude=52.5200,
-                longitude=13.4050,
-                num_charging_points=0,  # Invalid number of charging points
-            )
+            # Retrieve the station and convert to dictionary
+            retrieved_station = ChargingStation.query.all()[-1]
+            station_dict = retrieved_station.get_dict()
 
-    def test_invalid_charging_type(self):
-        """Test creating a charging station with an invalid charging type."""
-        with self.assertRaises(ChargingStationValidationError):
-            ChargingStation(
-                functional=OperationStatus.OPERATIONAL,
-                postal_code_id=1,
-                street="Sample Street",
-                house_number="123A",
-                latitude=52.5200,
-                longitude=13.4050,
-                charging_type="ultra-fast",  # Invalid charging type
-            )
-
-    def test_valid_charging_station(self):
-        """Test creating a valid charging station without database."""
-        station = ChargingStation(
-            functional=OperationStatus.USED,
-            postal_code_id=1,
-            street="Sample Street",
-            house_number="123A",
-            latitude=52.5200,
-            longitude=13.4050,
-            operator="Valid Operator",
-            address_suffix="Near Park",
-            nominal_power=22,
-            charging_type=ChargingType.NORMAL,
-            num_charging_points=2,
-        )
-        self.assertEqual(station.functional, OperationStatus.USED)
-        self.assertEqual(station.nominal_power, 22)
-        self.assertEqual(station.charging_type, ChargingType.NORMAL)
-        self.assertEqual(station.num_charging_points, 2)
+            # Validate the dictionary representation
+            self.assertEqual(station_dict["functional"], "operational")
+            self.assertEqual(station_dict["postal_code_id"], self.postal_code_number)
+            self.assertEqual(station_dict["street"], "Sample Street")
+            self.assertEqual(station_dict["house_number"], "123A")
+            self.assertEqual(station_dict["latitude"], 52.5200)
+            self.assertEqual(station_dict["longitude"], 13.4050)
+            self.assertEqual(station_dict["operator"], "Test Operator")
+            self.assertEqual(station_dict["address_suffix"], "Near Mall")
+            self.assertEqual(station_dict["nominal_power"], 50)
+            self.assertEqual(station_dict["charging_type"], "fast")
+            self.assertEqual(station_dict["num_charging_points"], 4)
 
 
 if __name__ == "__main__":

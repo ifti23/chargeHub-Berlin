@@ -27,10 +27,9 @@ import csv
 import os
 import unittest
 
-from app.entities.base import db
-from app.entities.postal_code import PostalCode, PostalCodeValidationError
-
 from app import create_app
+from app.domain.entities.postal_code import PostalCode, PostalCodeValidationError
+from app.domain.entities.templates.base import db
 
 
 class TestPostalCodeDataDB(unittest.TestCase):
