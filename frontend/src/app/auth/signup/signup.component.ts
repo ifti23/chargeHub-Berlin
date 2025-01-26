@@ -15,28 +15,27 @@ export class SignupComponent {
   email: string = '';
   phone: string = '';
   password: string = '';
-
+  errorMessage: string | null = null;
+  
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
     const apiUrl = 'http://127.0.0.1:5000/api/register_user/';
     console.log('Form submitted', this.username, this.email, this.phone, this.password);
-
-    
+  
     const userCredentials = {
       username: this.username,
       email: this.email,
       phone: this.phone,
       password: this.password,
     };
-
-    
+  
     console.log('Signup credentials:', userCredentials);
-
+  
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
+  
     this.http.post(apiUrl, userCredentials, { headers }).subscribe({
       next: (response: any) => {
         console.log('Sign up successful', response);
@@ -44,8 +43,13 @@ export class SignupComponent {
       },
       error: (err) => {
         console.error('Sign up failed', err);
-        alert('Signup failed. Please try again.');
+        if (err.status === 500) {
+          alert('Username or email already exists. Please try a different one.');
+        } else {
+          alert('Signup failed. Please try again.');
+        }
       },
     });
   }
+  
 }
