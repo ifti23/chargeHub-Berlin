@@ -1,7 +1,7 @@
 # ChargeHubBerlin
 
 ## Documentation
-The full documentation can be found in this [documentation.pdf](documentation/Software_engineering_project_documantation.pdf) file
+The full documentation can be found in this [documentation.pdf](documentation/ChargeHub Berlin Project Documentation.pdf) file
 
 ## Repository
 The code has been version controled under the following link:
