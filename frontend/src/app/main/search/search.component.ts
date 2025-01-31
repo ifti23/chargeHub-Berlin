@@ -17,16 +17,20 @@ export class SearchComponent implements AfterViewInit {
   noStationsFound: boolean = false;
   map!: L.Map;
   STATUS_OPTIONS = ["Operational", "Used", "Malfunctioning"];
+  
+
   constructor(private http: HttpClient) {}
 
   ngAfterViewInit(): void {
     
     this.map = L.map('map').setView([52.52, 13.405], 13); 
-
+   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
+  
+
   }
 
   onSubmit(): void {
@@ -37,12 +41,21 @@ export class SearchComponent implements AfterViewInit {
   
     this.http.get(apiUrl).subscribe({
       next: (response: any) => {
-        this.stations = response.map((station: any) => ({
+        console.log("API Response:", response);
+    
+        if (!response.stations || !Array.isArray(response.stations)) {
+          this.errorMessage = 'Unexpected response format from server.';
+          return;
+        }
+    
+        this.stations = response.stations.map((station: any) => ({
           ...station,
           status: this.mapFunctionalToStatus(station.functional),
           newStatus: this.mapFunctionalToStatus(station.functional),
         }));
-        console.log('Stations:', response);
+    
+        console.log('Stations:', this.stations);
+    
         if (this.stations.length === 0) {
           this.noStationsFound = true;
         } else {
@@ -60,6 +73,7 @@ export class SearchComponent implements AfterViewInit {
         console.error(error);
       },
     });
+    
   }
 
   displayStationsOnMap(stations: any[]): void {
@@ -83,6 +97,7 @@ export class SearchComponent implements AfterViewInit {
 
     const bounds = L.latLngBounds(stations.map(station => [station.latitude, station.longitude]));
     this.map.fitBounds(bounds);
+    
   }
 
   mapFunctionalToStatus(functional: string): string {
